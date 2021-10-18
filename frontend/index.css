@@ -92,4 +92,9 @@
       flex: 0 0 24%;
     }
   }
-  
+  table thead{
+    color: var(--third-color);
+  }
+  table{
+    color: var(--secondary-color);
+  }
