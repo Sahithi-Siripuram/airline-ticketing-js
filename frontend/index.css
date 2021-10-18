@@ -3,16 +3,81 @@
     box-sizing: border-box;
     font-family: "Montserrat", sans-serif;
   }
-  body {
-    margin: 0;
+  body,html{
+    background-image: url("../frontend/images/blackplane.jpeg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     background-color: var(--primary-color);
-    color: var(--secondar-color);
+    color: var(--secondary-color);
+    margin:0;
   }
-  
   :root {
     --primary-color: #171820;
-    --secondar-color: white;
+    --secondary-color: white;
+    --third-color: orange;
+    --background-light:#2E2F36;
   }
-  header{
-      padding: 5%;
+  .logo{
+    display: block;
+    float:left;
+    text-decoration: none;
+    text-align: center;
+    color: var(--third-color);
+    padding: 14px 16px;
+    font-size: 17px;
   }
+  .header{
+    overflow: hidden;
+    background-color: var(--background-light);
+  }
+  .header .button{
+    float: right;
+  }
+  .button{
+    display: block;
+    color:var(--secondary-color);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    border-bottom: 3px solid transparent;
+  }
+  .active{
+    border-bottom: 3px solid var(--third-color);
+  }
+  .button:hover{
+    border-bottom: 3px solid var(--third-color);
+  }
+  .card-deck {
+    margin: 15px;
+    justify-content: space-between;
+  }
+  
+  .card-deck .card {
+    margin: 0 0 1rem;
+  }
+  
+  @media (min-width: 576px) and (max-width: 767.98px) {
+    .card-deck .card {
+      -ms-flex: 0 0 48.7%;
+      flex: 0 0 48.7%;
+    }
+  }
+  
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    .card-deck .card {
+      -ms-flex: 0 0 32%;
+      flex: 0 0 32%;
+    }
+  }
+  
+  @media (min-width: 992px)
+  {
+    .card-deck .card {
+      -ms-flex: 0 0 24%;
+      flex: 0 0 24%;
+    }
+  }
+  
