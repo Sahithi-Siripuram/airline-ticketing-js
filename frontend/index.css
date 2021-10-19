@@ -4,7 +4,7 @@
     font-family: "Montserrat", sans-serif;
   }
   body,html{
-    background-image: url("../frontend/images/blackplane.jpeg");
+    background-image: url("https://github.com/Sahithi-Siripuram/airline-ticketing-js/blob/main/frontend/images/blackplane.jpeg?raw=true");
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
