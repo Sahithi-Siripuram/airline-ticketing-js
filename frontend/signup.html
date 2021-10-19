@@ -1,35 +1,15 @@
 <html>
 <head>
-    <title>SignUp </title>
-    <style>
-        #b{
-            background-image: url(backg.png);
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-attachment: fixed;
-            background-size: cover;
-
-            color:white;
-            font-size: 30px; 
-            padding-right:400px ; 
-            padding-left: 400px; 
-            padding-top: 200px; 
-        }
-        input:focus {
-            background-color: rgb(248, 248, 157);
-        }
-        input:hover{
-            font-weight: bold;
-            background-color: white;
-        }
-    </style>
+    <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Airline Ticketing System</title>
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
-<body id=b>
-    <strong>
-    <center>  
-        <fieldset>  
-        <h1 style="font-size: 60px;">SignUp</h1>
+<body>
         <form action="success1.html">
+            <h1 class="login-title">SignUp</h1>
             <table>
                 <tr>
                     <td>Enter Your Username:</td>
@@ -43,16 +23,10 @@
                     <td>Confirm Password:</td>
                     <td><input type="password"></td>
                 </tr>  
-                <tr>
-                    <td></td>
-                    <td><input type="submit" value="SignUp"></td>
-                </tr>
             </table>
+            <input class="button-center" type="submit" value="Signup">
+        <br>
+        <span class="login-signup">Already have an account? <a href="./signup.html"> Signin </a> now </span>
         </form>
-    </fieldset>
-    </center>
-    </strong>
-
-
 </body>
 </html>
