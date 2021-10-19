@@ -1,54 +1,28 @@
 <html>
 <head>
-    <title>Login Form</title>
-    <style>
-        #b{
-            background-image: url(backg.png);
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-attachment: fixed;
-            background-size: cover;
-
-            color:white;
-            font-size: 30px; 
-            padding-right:400px ; 
-            padding-left: 400px; 
-            padding-top: 200px; 
-        }
-        input:focus {
-            background-color: rgb(248, 248, 157);
-        }
-        input:hover{
-            font-weight: bold;
-            background-color: white;
-            
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airline Ticketing System</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
-<body id=b>
-    <strong>
-    <center>  
-        <fieldset>  
-        <h1 style="font-size: 60px;">Login Form</h1>
-        <form action="success.html">
-            <table>
-                <tr>
-                    <td>UserName:</td>
-                    <td><input type="text" name="Username" placeholder="Please Enter Your Username"></td>
-                </tr>
-                <tr>
-                    <td>Password:</td>
-                    <td><input type="password"></td>
-                </tr>   
-                <tr>
-                    <td></td>
-                    <td><input type="submit" value="Login"></td>
-                </tr>
-            </table>
-        </form>
-    </fieldset>
-    </center>
-    </strong>
-    
+<body>
+    <form action="success.html">
+        <h1 class="login-title">Login form</h1>
+        <table>
+            <tr>
+                <td>Username</td>
+                <td><input type="text" name="Username"></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="password"></td>
+            </tr>   
+        </table>
+        <input class="button-center" type="submit" value="Login">
+        <br>
+        <span class="login-signup">Don't have an account? <a href="./signup.html"> Signup </a> now </span>
+    </form> 
 </body>
 </html>
