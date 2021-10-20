@@ -1,4 +1,5 @@
-Deployed on comakeairlines.herokuapp.com
+Deployed on heroku
+[Link to project](https://comakeairlines.herokuapp.com)
 
 Fully responsive
 
