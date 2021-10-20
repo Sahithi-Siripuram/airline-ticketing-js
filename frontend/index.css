@@ -122,3 +122,6 @@
     display: block;
     margin: auto;
   }
+  .left-form{
+    color: var(--secondary-color);
+  }
