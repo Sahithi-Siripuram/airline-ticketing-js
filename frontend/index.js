@@ -1,9 +1,12 @@
+const { text } = require("stream/consumers");
+
 function moreForm(){
     var passengers = document.querySelector(".noOfPassengers").value;
     operation(1,passengers);
 
     //table header and decleration
     var newTable=document.createElement("table");
+    newTable.className="table";
     var headRow=document.createElement("thead");
     var passengerId=document.createElement("td");
     passengerId.innerHTML="Passenger Id";
@@ -39,18 +42,9 @@ function moreForm(){
             //row to append to table
             var newRow=document.createElement("tr");
             var IdCol=document.createElement("td");
-            passengerId.innerHTML="1"; //generate through random function
-            var passengerName=document.createElement("td");
-            passengerName.innerHTML="Passenger Name";
-            var passengerAge=document.createElement("td");
-            passengerAge.innerHTML="Passenger Age";
-            var passengerGender=document.createElement("td");
-            passengerGender.innerHTML="Passenger Gender";
-            headRow.appendChild(passengerId);
-            headRow.appendChild(passengerName);
-            headRow.appendChild(passengerAge);
-            headRow.appendChild(passengerGender);
-            newTable.appendChild(headRow);
+            var NameCol=document.createElement("td");
+            var AgeCol=document.createElement("td");
+            var GenderCol=document.createElement("td");
     
             //passenger number label
             var headerLabel=document.createElement("label");
@@ -62,7 +56,7 @@ function moreForm(){
             nameLabel.innerHTML="Name";
             var nameForm=document.createElement("input");
             nameForm.setAttribute("type","text");
-            nameForm.className="form-control";
+            nameForm.className="form-control passenger-name";
     
             //age label and input form to be appended into div2
             var ageLabel=document.createElement("label");
@@ -71,7 +65,7 @@ function moreForm(){
             ageForm.setAttribute("type","number");
             ageForm.setAttribute("min","0");
             ageForm.setAttribute("max","100");
-            ageForm.className="form-control";
+            ageForm.className="form-control passenger-age";
     
             //male female labels and input radio buttons to be appended into div3
             var gender=["Male","Female"];
@@ -79,6 +73,7 @@ function moreForm(){
                 var genderLabel=document.createElement("label");
                 genderLabel.innerHTML=genderValue;
                 genderLabel.setAttribute("for",genderValue);
+                genderLabel.className="passenger-gender";
                 var genderForm=document.createElement("input");
                 genderForm.setAttribute("type","radio");
                 genderForm.setAttribute("name","gender");
@@ -94,6 +89,15 @@ function moreForm(){
             newButton.innerHTML=(i==passengers)?"Submit":"Add Details";
             newButton.className="button-center";
             $(newButton).click(function(){
+                IdCol.innerHTML="1"; //generate through random function
+                NameCol.innerHTML=document.querySelector(".passenger-name").value;
+                AgeCol.innerHTML=document.querySelector(".passenger-age").value; 
+                GenderCol.innerHTML="Male";
+                newRow.appendChild(IdCol);
+                newRow.appendChild(NameCol);
+                newRow.appendChild(AgeCol);
+                newRow.appendChild(GenderCol);
+                newTable.appendChild(newRow);
                 if(i==passengers)
                     display();
                 else
