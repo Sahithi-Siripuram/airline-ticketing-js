@@ -4,9 +4,12 @@ function moreForm(){
 }
 function operation(i,passengers){
     if(i<=passengers){
+
+        //main div with all contents
         var newDiv=document.createElement("div");
         newDiv.className="container";
 
+        //div 1- name div-2 age div-3 gender
         var div1=document.createElement("div");
         div1.className="form-group left-form";
         var div2=document.createElement("div");
@@ -14,16 +17,19 @@ function operation(i,passengers){
         var div3=document.createElement("div");
         div3.className="form-group left-form";
 
+        //passenger number label
         var headerLabel=document.createElement("label");
         headerLabel.innerHTML="Enter details of passenger "+(i);
         headerLabel.className="login-title";
 
+        //name label and input form to be appended into div1
         var nameLabel=document.createElement("label");
         nameLabel.innerHTML="Name";
         var nameForm=document.createElement("input");
         nameForm.setAttribute("type","text");
         nameForm.className="form-control";
 
+        //age label and input form to be appended into div2
         var ageLabel=document.createElement("label");
         ageLabel.innerHTML="Age";
         var ageForm=document.createElement("input");
@@ -32,6 +38,7 @@ function operation(i,passengers){
         ageForm.setAttribute("max","100");
         ageForm.className="form-control";
 
+        //male female labels and input radio buttons to be appended into div3
         var gender=["Male","Female"];
         gender.forEach((genderValue,j)=>{
             var genderLabel=document.createElement("label");
@@ -47,6 +54,7 @@ function operation(i,passengers){
             div3.appendChild(genderForm);
         });
 
+        //add details or submit button to be added to the main div
         var newButton=document.createElement("button");
         newButton.innerHTML=(i==passengers)?"Submit":"Add Details";
         newButton.className="button-center";
