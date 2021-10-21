@@ -1,6 +1,9 @@
 function moreForm(){
     var passengers = document.querySelector(".noOfPassengers").value;
-    for(let i=0; i<passengers; i++){
+    operation(1,passengers);
+}
+function operation(i,passengers){
+    if(i<=passengers){
         var newDiv=document.createElement("div");
         newDiv.className="container";
 
@@ -10,6 +13,10 @@ function moreForm(){
         div2.className="form-group left-form";
         var div3=document.createElement("div");
         div3.className="form-group left-form";
+
+        var headerLabel=document.createElement("label");
+        headerLabel.innerHTML="Enter details of passenger "+(i);
+        headerLabel.className="login-title";
 
         var nameLabel=document.createElement("label");
         nameLabel.innerHTML="Name";
@@ -29,13 +36,22 @@ function moreForm(){
         gender.forEach((genderValue,j)=>{
             var genderLabel=document.createElement("label");
             genderLabel.innerHTML=genderValue;
+            genderLabel.setAttribute("for",genderValue);
             var genderForm=document.createElement("input");
             genderForm.setAttribute("type","radio");
-            genderForm.setAttribute("name",genderValue);
-            genderForm.genderValue=j;
+            genderForm.setAttribute("name","gender");
+            genderForm.setAttribute("id",genderValue);
+            genderLabel.className="form-control-radio";
+            genderForm.className="form-control-radio";
             div3.appendChild(genderLabel);
             div3.appendChild(genderForm);
         });
+
+        var newButton=document.createElement("button");
+        newButton.innerHTML=(i==passengers)?"Submit":"Add Details";
+        newButton.className="button-center";
+        $(newButton).click(function(){operation(i+1,passengers)}); //jquery onclick implementation
+        //try writing the same thing with js
 
         div1.appendChild(nameLabel);
         div1.appendChild(nameForm);
@@ -43,16 +59,14 @@ function moreForm(){
         div2.appendChild(ageLabel);
         div2.appendChild(ageForm);
 
-        
-
+        newDiv.appendChild(headerLabel);
         newDiv.appendChild(div1);
         newDiv.appendChild(div2);
         newDiv.appendChild(div3);
+        newDiv.appendChild(newButton);
 
-        document.querySelector(".moreDetails").appendChild(newDiv);
+        document.querySelector(".full-page").innerHTML="";
+        document.querySelector(".full-page").appendChild(newDiv);
+        
     }
-    var newButton=document.createElement("button");
-    newButton.innerHTML="Add Details";
-    newButton.className="button-center";
-    document.querySelector(".moreDetails").appendChild(newButton);
 }

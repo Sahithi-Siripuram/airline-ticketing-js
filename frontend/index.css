@@ -125,3 +125,7 @@
   .left-form{
     color: var(--secondary-color);
   }
+  .form-control-radio{
+    display: inline-block;
+    padding-left: 25%;
+  }
