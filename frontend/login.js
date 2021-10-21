@@ -2,7 +2,7 @@ function validate()
         {
             event.preventDefault();
             var email=document.getElementById("email").value;
-            var password=document.getElementById("pswrd").value;
+            var pswrd=document.getElementById("pswrd").value;
             var emailPattern =  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
             var c=2;
             if(!emailPattern.test(email))
@@ -12,8 +12,7 @@ function validate()
                 c--;
             }
             else if(pswrd.length<8)
-            {
-                
+            {       
                 document.getElementById("alert").innerHTML="Password should contain atleast 8 charecters";
                 document.getElementById("alert").style.backgroundColor='red';
                 c--;

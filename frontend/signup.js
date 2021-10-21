@@ -4,7 +4,7 @@ function validate()
             var email=document.getElementById("email").value;
             var pswrd=document.getElementById("password").value;
             var cpswrd=document.getElementById("cpassword").value;
-            var emailPattern =  /^[a-zA-Z0-9]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+            var emailPattern =  /^[a-zA-Z0-9]+@[a-zA-Z0-9-]++^(?=_)(?=.)(?:\.[a-zA-Z0-9-]+)*$/;
             var passPattern= /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,14}$/;
             var c=3;
             if(!emailPattern.test(email))
@@ -13,6 +13,12 @@ function validate()
                 document.getElementById("alert").style.backgroundColor='red';
                 c--;
             }     
+            else if(pswrd.length<8)
+            {       
+                document.getElementById("alert").innerHTML="Password should contain atleast 8 charecters";
+                document.getElementById("alert").style.backgroundColor='red';
+                c--;
+            }
             else if(!passPattern.test(pswrd))
             {
                 document.getElementById("alert").innerHTML=" Password format error";
