@@ -43,7 +43,7 @@
             </div>
             <div class="form-group left-form">
                 <label for="passengers">Passengers</label>
-                <input class="form-control noOfPassengers" type="number" name="passengers" min="1" max="5">
+                <input class="form-control noOfPassengers" type="number" name="passengers"  id ="passengers-count"  onkeydown="limit(this)" onkeyup="limit(this)" min="1" max="5">
             </div>
           </form>
           <br>

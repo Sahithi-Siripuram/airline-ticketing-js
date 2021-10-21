@@ -1,7 +1,17 @@
 const { text } = require("stream/consumers");
 
+function limit(element)
+{
+    if(parseInt(element.value)>5){
+        alert("only 5 passengers are allowed!")
+        element.value = "";
+    }
+}
+
+
+
 function moreForm(){
-    var passengers = document.querySelector(".noOfPassengers").value;
+    var passengers = parseInt(document.querySelector(".noOfPassengers").value);
     operation(1,passengers);
 
     //table header and decleration
@@ -56,6 +66,7 @@ function moreForm(){
             nameLabel.innerHTML="Name";
             var nameForm=document.createElement("input");
             nameForm.setAttribute("type","text");
+            nameForm.setAttribute("id","nameid");
             nameForm.className="form-control passenger-name";
     
             //age label and input form to be appended into div2
@@ -63,6 +74,7 @@ function moreForm(){
             ageLabel.innerHTML="Age";
             var ageForm=document.createElement("input");
             ageForm.setAttribute("type","number");
+            ageForm.setAttribute("id","age");
             ageForm.setAttribute("min","0");
             ageForm.setAttribute("max","100");
             ageForm.className="form-control passenger-age";
@@ -83,25 +95,80 @@ function moreForm(){
                 div3.appendChild(genderLabel);
                 div3.appendChild(genderForm);
             });
-    
+            
             //add details or submit button to be added to the main div
             var newButton=document.createElement("button");
             newButton.innerHTML=(i==passengers)?"Submit":"Add Details";
             newButton.className="button-center";
             $(newButton).click(function(){
-                IdCol.innerHTML="1"; //generate through random function
+                
+                IdCol.innerHTML="PID-"+i; //generate through random function
                 NameCol.innerHTML=document.querySelector(".passenger-name").value;
                 AgeCol.innerHTML=document.querySelector(".passenger-age").value; 
                 GenderCol.innerHTML="Male";
-                newRow.appendChild(IdCol);
-                newRow.appendChild(NameCol);
-                newRow.appendChild(AgeCol);
-                newRow.appendChild(GenderCol);
-                newTable.appendChild(newRow);
+
+                //passenger name validation
+                var pname = document.querySelector(".passenger-name").value;
+                var indicator=0;
+                if(pname != pname.trim()){
+                    alert("please enter Correct name with out spaces");
+                    i--;
+                    NameCol.innerHTML=document.querySelector(".passenger-name").value;
+                    indicator=1;
+                }
+                var flag = 0;
+                for(let j=0;j<pname.length;j++){
+                    if(parseInt(pname[j])>=0 && parseInt(pname[j])<=9){
+                        flag=1; 
+                        break;
+                    }    
+                    if(pname[j]=="@" || pname[j]=="~" ||pname[j]=="#" || pname[j]=="$" || pname[j]=="^"){
+                        flag=1;
+                        break;
+                    }
+                    if(pname[j]=="*" || pname[j]=="(" ||pname[j]==")" || pname[j]=="-" || pname[j]=="_"){
+                        flag=1;
+                        break;
+                    }
+                    if(pname[j]=="+" || pname[j]=="=" ||pname[j]=="{" || pname[j]=="}" || pname[j]=="[" ){
+                        flag=1;
+                        break;
+                    }
+
+                }
+                if(flag==1 && indicator==0){
+                    alert("Symbols/Numbers are not allowed");
+                    NameCol.innerHTML=document.querySelector(".passenger-name").value;
+                    i--;
+                }
+                
+                //passanger age validation
+                // var flag_age=0;
+                // var page = document.querySelector(".passenger-age").value; 
+                // if(parseInt(page)<=0 || parseInt(page)>100){
+                //     flag_age=1;
+                // }
+                // if(flag_age==1 && flag==0 && indicator ==0){
+                //     alert("please enter the vaildate age");
+                //     i--;
+                // }
+                if(i<0){
+                    i=0;
+                }
+                    
+                
+                
+    
                 if(i==passengers)
                     display();
-                else
+                else{
+                    newRow.appendChild(IdCol);
+                    newRow.appendChild(NameCol);
+                    newRow.appendChild(AgeCol);
+                    newRow.appendChild(GenderCol);
+                    newTable.appendChild(newRow);
                     operation(i+1,passengers)
+                }
             }); //jquery onclick implementation
             //try writing the same thing with js
     
