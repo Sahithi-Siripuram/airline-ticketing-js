@@ -65,11 +65,18 @@
     text-decoration: none;
     color: var(--third-color);
   }
-  .card-deck {
+  .card-deck{
     margin: 15px;
     justify-content: space-between;
   }
-  
+  .card-block{
+    color: var(--secondary-color);
+    text-decoration: none;
+  }
+  .card-block:hover{
+    color: var(--third-color);
+    text-decoration: none;
+  }
   .card-deck .card {
     margin: 0 0 1rem;
     background-color: transparent;
