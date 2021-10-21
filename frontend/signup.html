@@ -12,21 +12,25 @@
             <h1 class="login-title">SignUp</h1>
             <table>
                 <tr>
-                    <td>Enter Your Username:</td>
-                    <td><input type="text" name="Username"></td>
+                    <td colspan="2"> <div id="alert" style="height: 30px; text-align: center; padding-top: 5px;"></div></td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><input type="text" name="Email" id="email"></td>
                 </tr>
                 <tr>
                     <td>Password:</td>
-                    <td><input type="password"></td>
+                    <td><input type="password" id="password"></td>
                 </tr>   
                 <tr>
                     <td>Confirm Password:</td>
-                    <td><input type="password"></td>
+                    <td><input type="password" id="cpassword"></td>
                 </tr>  
             </table>
-            <input class="button-center" type="submit" value="Signup">
+            <input class="button-center" type="submit" value="Signup" onclick="validate()">
         <br>
         <span class="login-signup">Already have an account? <a href="./signup.html"> Signin </a> now </span>
         </form>
+        <script src="signup.js"></script>
 </body>
 </html>
