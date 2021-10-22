@@ -143,30 +143,34 @@ function moreForm(){
                 }
                 
                 //passanger age validation
-                // var flag_age=0;
-                // var page = document.querySelector(".passenger-age").value; 
-                // if(parseInt(page)<=0 || parseInt(page)>100){
-                //     flag_age=1;
-                // }
-                // if(flag_age==1 && flag==0 && indicator ==0){
-                //     alert("please enter the vaildate age");
-                //     i--;
-                // }
+                var flag_age=0;
+                var page = document.querySelector(".passenger-age").value; 
+                if(parseInt(page)<=0 || parseInt(page)>100){
+                    flag_age=1;
+                }
+                if(flag_age==1 && flag==0 && indicator ==0){
+                    alert("please enter the vaildate age");
+                    i--;
+                }
                 if(i<0){
                     i=0;
                 }
-                    
-                
-                
-    
-                if(i==passengers)
-                    display();
-                else{
+                if(i==passengers){
                     newRow.appendChild(IdCol);
                     newRow.appendChild(NameCol);
                     newRow.appendChild(AgeCol);
                     newRow.appendChild(GenderCol);
                     newTable.appendChild(newRow);
+                    display();
+                }    
+                else{
+                    if(flag==0 && indicator==0 && flag_age==0){
+                    newRow.appendChild(IdCol);
+                    newRow.appendChild(NameCol);
+                    newRow.appendChild(AgeCol);
+                    newRow.appendChild(GenderCol);
+                    newTable.appendChild(newRow);
+                    }
                     operation(i+1,passengers)
                 }
             }); //jquery onclick implementation
