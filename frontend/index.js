@@ -1,9 +1,10 @@
 const { text } = require("stream/consumers");
 
+//passenger count validation ongo
 function limit(element)
 {
     if(parseInt(element.value)>5){
-        alert("only 5 passengers are allowed!")
+        selfAlert_1();
         element.value = "";
     }
 }
@@ -111,7 +112,7 @@ function moreForm(){
                 var pname = document.querySelector(".passenger-name").value;
                 var indicator=0;
                 if(pname != pname.trim()){
-                    alert("please enter Correct name with out spaces");
+                    selfAlert2();
                     i--;
                     NameCol.innerHTML=document.querySelector(".passenger-name").value;
                     indicator=1;
@@ -134,10 +135,9 @@ function moreForm(){
                         flag=1;
                         break;
                     }
-
                 }
                 if(flag==1 && indicator==0){
-                    alert("Symbols/Numbers are not allowed");
+                    selfAlert3();
                     NameCol.innerHTML=document.querySelector(".passenger-name").value;
                     i--;
                 }
@@ -149,7 +149,7 @@ function moreForm(){
                     flag_age=1;
                 }
                 if(flag_age==1 && flag==0 && indicator ==0){
-                    alert("please enter the vaildate age");
+                    selfAlert4();
                     i--;
                 }
                 if(i<0){
@@ -197,4 +197,27 @@ function moreForm(){
         document.querySelector(".full-page").innerHTML="";
         document.querySelector(".full-page").appendChild(newTable);
     }
+    
+}
+
+
+//sweet Alerts 2.0
+function selfAlert_1(){
+    Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Only 5 passengers allowed!',
+        footer: '<a href="">Why do I have this issue?</a>'
+    })
+
+}
+function selfAlert2(){
+    Swal.fire('Please enter Correct name with out spaces!')
+    
+}
+function selfAlert3(){
+    Swal.fire('Symbols/Numbers are not allowed for name field!')
+}
+function selfAlert4(){
+    Swal.fire('Please enter the vaildate age!')
 }
