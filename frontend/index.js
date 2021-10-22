@@ -90,19 +90,18 @@ function moreForm(){
                 var genderForm=document.createElement("input");
                 genderForm.setAttribute("type","radio");
                 genderForm.setAttribute("name","gender");
-                genderForm.setAttribute("id","genderValue");
+                genderForm.setAttribute("id",genderValue);
                 genderLabel.className="form-control-radio";
                 genderForm.className="form-control-radio";
                 div3.appendChild(genderLabel);
                 div3.appendChild(genderForm);
             });
-            
+
             //add details or submit button to be added to the main div
             var newButton=document.createElement("button");
             newButton.innerHTML=(i==passengers)?"Submit":"Add Details";
             newButton.className="button-center";
             $(newButton).click(function(){
-                
                 IdCol.innerHTML="PID-"+i; //generate through random function
                 NameCol.innerHTML=document.querySelector(".passenger-name").value;
                 AgeCol.innerHTML=document.querySelector(".passenger-age").value; 
@@ -158,6 +157,22 @@ function moreForm(){
                     selfAlert4();
                     i--;
                 }
+                
+                //gender validation 
+                var flag_gender = 0;
+                if(document.getElementById("Male").checked == true){
+                    GenderCol.innerHTML="Male";
+                }
+                   
+                if(document.getElementById("Female").checked == true){
+                    GenderCol.innerHTML="Female";
+                }
+                if(document.getElementById("Male").checked == false && document.getElementById("Female").checked == false){
+                    selfAlert5();
+                    flag_gender = 1;
+                    i--;
+                }
+
                 if(i<0){
                     i=0;
                 }
@@ -171,7 +186,7 @@ function moreForm(){
                     display();
                 }    
                 else{
-                    if(flag==0 && indicator==0 && flag_age==0 && flag_name==0){
+                    if(flag==0 && indicator == 0 && flag_age == 0 && flag_name == 0 && flag_gender == 0){
                     newRow.appendChild(IdCol);
                     newRow.appendChild(NameCol);
                     newRow.appendChild(AgeCol);
@@ -227,4 +242,7 @@ function selfAlert3(){
 }
 function selfAlert4(){
     Swal.fire('Please enter the vaildate age!')
+}
+function selfAlert5(){
+    Swal.fire('Please select Your Gender')
 }
