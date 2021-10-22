@@ -1,20 +1,17 @@
-const { text } = require("stream/consumers");
-
 function moreForm(){
     var passengers = document.querySelector(".noOfPassengers").value;
     operation(1,passengers);
 
     //table header and decleration
-    var newTable=document.createElement("table");
-    newTable.className="table";
+    var newTable=document.createElement("TABLE");
     var headRow=document.createElement("thead");
-    var passengerId=document.createElement("td");
+    var passengerId=document.createElement("TD");
     passengerId.innerHTML="Passenger Id";
-    var passengerName=document.createElement("td");
+    var passengerName=document.createElement("TD");
     passengerName.innerHTML="Passenger Name";
-    var passengerAge=document.createElement("td");
+    var passengerAge=document.createElement("TD");
     passengerAge.innerHTML="Passenger Age";
-    var passengerGender=document.createElement("td");
+    var passengerGender=document.createElement("TD");
     passengerGender.innerHTML="Passenger Gender";
     headRow.appendChild(passengerId);
     headRow.appendChild(passengerName);
@@ -40,11 +37,11 @@ function moreForm(){
             div3.className="form-group left-form";
 
             //row to append to table
-            var newRow=document.createElement("tr");
-            var IdCol=document.createElement("td");
-            var NameCol=document.createElement("td");
-            var AgeCol=document.createElement("td");
-            var GenderCol=document.createElement("td");
+            var newRow=document.createElement("TR");
+            var IdCol=document.createElement("TD");
+            var NameCol=document.createElement("TD");
+            var AgeCol=document.createElement("TD");
+            var GenderCol=document.createElement("TD");
     
             //passenger number label
             var headerLabel=document.createElement("label");
@@ -101,7 +98,7 @@ function moreForm(){
                 if(i==passengers)
                     display();
                 else
-                    operation(i+1,passengers)
+                    operation(i+1,passengers);
             }); //jquery onclick implementation
             //try writing the same thing with js
     
