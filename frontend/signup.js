@@ -36,5 +36,6 @@ function validate()
             {
                 document.getElementById("alert").innerHTML="Account created Successfully..!!!";
                 document.getElementById("alert").style.backgroundColor="green";
+                setTimeout(function(){ window.location.href="success.html"}, 3000);
             }
         }
