@@ -81,8 +81,8 @@ function moreForm(){
             ageForm.className="form-control passenger-age";
     
             //male female labels and input radio buttons to be appended into div3
-            var gender=["Male","Female"];
-            gender.forEach((genderValue,j)=>{
+            var genders=["Male","Female"];
+            genders.forEach((genderValue,j)=>{
                 var genderLabel=document.createElement("label");
                 genderLabel.innerHTML=genderValue;
                 genderLabel.setAttribute("for",genderValue);
@@ -90,7 +90,7 @@ function moreForm(){
                 var genderForm=document.createElement("input");
                 genderForm.setAttribute("type","radio");
                 genderForm.setAttribute("name","gender");
-                genderForm.setAttribute("id",genderValue);
+                genderForm.setAttribute("id","genderValue");
                 genderLabel.className="form-control-radio";
                 genderForm.className="form-control-radio";
                 div3.appendChild(genderLabel);
@@ -106,7 +106,7 @@ function moreForm(){
                 IdCol.innerHTML="PID-"+i; //generate through random function
                 NameCol.innerHTML=document.querySelector(".passenger-name").value;
                 AgeCol.innerHTML=document.querySelector(".passenger-age").value; 
-                GenderCol.innerHTML="Male";
+                // GenderCol.innerHTML="Male";
 
                 //passenger name validation
                 var pname = document.querySelector(".passenger-name").value;
@@ -136,7 +136,13 @@ function moreForm(){
                         break;
                     }
                 }
-                if(flag==1 && indicator==0){
+                var flag_name=0;
+                if(pname.length<3 && indicator == 0){
+                    Swal.fire('Name should be more then 3 char!');
+                    flag_name=1;
+                    i--;
+                }
+                if(flag==1 && indicator==0 && flag_name==0){
                     selfAlert3();
                     NameCol.innerHTML=document.querySelector(".passenger-name").value;
                     i--;
@@ -145,16 +151,17 @@ function moreForm(){
                 //passanger age validation
                 var flag_age=0;
                 var page = document.querySelector(".passenger-age").value; 
-                if(parseInt(page)<=0 || parseInt(page)>100){
+                if(parseInt(page)<=0 || parseInt(page)>100 || page==""){
                     flag_age=1;
                 }
-                if(flag_age==1 && flag==0 && indicator ==0){
+                if(flag_age==1 && flag==0 && indicator ==0 && flag_name==0){
                     selfAlert4();
                     i--;
                 }
                 if(i<0){
                     i=0;
                 }
+
                 if(i==passengers){
                     newRow.appendChild(IdCol);
                     newRow.appendChild(NameCol);
@@ -164,7 +171,7 @@ function moreForm(){
                     display();
                 }    
                 else{
-                    if(flag==0 && indicator==0 && flag_age==0){
+                    if(flag==0 && indicator==0 && flag_age==0 && flag_name==0){
                     newRow.appendChild(IdCol);
                     newRow.appendChild(NameCol);
                     newRow.appendChild(AgeCol);

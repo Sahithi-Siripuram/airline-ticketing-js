@@ -99,16 +99,8 @@
     color: var(--third-color);
   }
   table{
-    margin: 0 0 1rem;
     background-color: transparent;
-    display: flex;
-    padding: 2%;
-    align-items: center;
-    justify-content: center;
     color: var(--secondary-color);
-  }
-  table td{
-    padding: 2%;
   }
   .login-title{
     font-size: 30px;
