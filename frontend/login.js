@@ -21,6 +21,6 @@ function validate()
             {
                 document.getElementById("alert").innerHTML="Your details are validated";
                 document.getElementById("alert").style.backgroundColor="green";
-                setTimeout(function(){ window.location.href="success.html"}, 3000);
+                setTimeout(function(){ window.location.href="success.html"}, 500);
             }
         }

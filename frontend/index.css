@@ -129,7 +129,14 @@
     padding-left: 25%;
   }
   .form-container{
-    margin-left: 49em;
-    margin-bottom: 2em;
-    
+    margin: 0 0 1rem;
+    background-color: transparent;
+    display: flex;
+    padding: 2%;
+    align-items: center;
+    justify-content: center;
+    color: var(--secondary-color);
+  }
+  .form-container td{
+    padding: 2%;
   }
