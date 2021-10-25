@@ -140,3 +140,10 @@
   .form-container td{
     padding: 2%;
   }
+  .footer-copyright {
+  position: fixed;
+  left: 0px;
+  bottom: 10px;
+  height: 30px;
+  width: 100%;
+  }
